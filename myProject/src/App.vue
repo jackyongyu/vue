@@ -1,18 +1,11 @@
 <template>
   <div>
-    <p v-html="hello"></p>
+    <input type="text" v-model="myValue">
+    {{ getmyValueWithoutNumb()}}
     <ul>
-      <li v-for="(item,index) in list" :key="index">{{item.name}} -- {{item.price}}</li>
+      <li v-for="(item,index) in myList" :key="index">{{item.name}}+{{item.price}}</li>
     </ul>
-    <a v-if="isPart">partA</a>
-    <a v-else>no data</a>
-    <button @click="addItem">addItem</button>
-    <select v-model="selection">
-         <option value="1">1</option>
-         <option value="2">2</option>
-      </select>  
-    {{selection}}
-    <component-a @my-emit="onCompmyEvent"></component-a>
+    <button @click="changeList">change list</button>
   </div>
 </template>
 
@@ -26,19 +19,8 @@ export default {
   },
   data() {
     return {
-      selection:null,
-      mybox: [],
-      hello: "<span>world!</span>",
-      link: "http://www.baidu.com",
-      addClass: ["font-red", "font-orange", "font-right"],
-      classA: "font-classA",
-      hasError: false,
-      styleClass: {
-        "font-size": "18px",
-        color: "red"
-      },
-      isPart: "ture",
-      list: [
+      myValue: "",
+      myList: [
         {
           name: "apple",
           price: "10r"
@@ -47,16 +29,35 @@ export default {
           name: "banana",
           price: "5r"
         }
-      ],
-      listObject: {
-        name: "orange",
-        price: "5r",
-        color: "yellow",
-        size: "4cm"
-      }
+      ]
     };
   },
+  watch: {
+    myValue: function(data, oldData) {
+      console.log(data, oldData);
+    },
+    myList: function() {
+      this.tellUser();
+    }
+  },
+  computed: {
+    myValueWithoutNumber() {
+      return this.myValue.replace(/\d/g, "");
+    }
+  },
   methods: {
+    tellUser() {
+      console.log("this is message of changing list");
+    },
+    changeList() {
+      Vue.set(this.myList, 1, {
+        name: "durian",
+        price: "15r"
+      });
+    },
+    getmyValueWithoutNumb() {
+      return this.myValue.replace(/\d/g, "");
+    },
     addItem() {
       Vue.set(this.list, 1, {
         name: "durian",
@@ -75,11 +76,6 @@ export default {
   }
 };
 </script>
-
-
-
-
-
 
 
 
