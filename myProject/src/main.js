@@ -11,6 +11,10 @@ let router=new VRouter({
    mode:'history',
    routes:[
      {
+       path:"/",
+       redirect:"/apple"
+     },
+     {
        path:"/apple",
        component:Apple,
        children:[

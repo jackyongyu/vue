@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- {{$route.params.color}} -->
-    {{ msg }}
+    <p id="appletext">{{ msg }}</p>
     <!-- <button @click="getParam">get param</button> -->
   </div>
 </template>
@@ -21,3 +21,10 @@ export default {
 //   }
 };
 </script>
+
+<style>
+#appletext{
+  font-size: 20px;
+  color:#666;
+}
+</style>
