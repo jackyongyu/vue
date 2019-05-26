@@ -1,22 +1,16 @@
 <template>
-  <div>
-    <input type="text" v-model="myValue">
-    {{ getmyValueWithoutNumb()}}
-    <ul>
-      <li v-for="(item,index) in myList" :key="index">{{item.name}}+{{item.price}}</li>
-    </ul>
-    <button @click="changeList">change list</button>
+  <div id="app">
+   <img src="./assets/logo.png">
+    <router-view></router-view>
+    <router-link :to="{path:'apple'}">to apple</router-link>
+    <router-link :to="{path:'banana'}">to banana</router-link>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import ComponentA from "./components/ComponentA";
 export default {
   name: "App",
-  components: {
-    "component-a": ComponentA
-  },
   data() {
     return {
       myValue: "",
