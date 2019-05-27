@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App'
+import Layout from './components/Layout'
 
 
 // let router=new VRouter({
@@ -30,8 +30,8 @@ import App from './App'
 new Vue({
   el:"#app",
   // router,
-  template:'<App/>',
-  components:{App}
+  template:'<Layout/>',
+  components:{Layout}
 })
 
 // router.push({path:'/apple'})
