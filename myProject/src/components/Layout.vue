@@ -9,7 +9,7 @@
      name:'Layout',
      data (){
          return {
-             msg:"this is layout"
+             msg:"this is layout,i'm changging code"
          }
      }
  }
