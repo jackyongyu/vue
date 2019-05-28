@@ -9,13 +9,8 @@ let router=new VueRouter({
    routes:[
      {
        path:"/",
-       redirect:"/PageIndex"
-     },
-     {
-       path:'/exhibitionList',
        component:ExhibitionList
      }
-    
     ]
 })
 
