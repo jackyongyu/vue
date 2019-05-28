@@ -23,7 +23,24 @@
         </ul>
       </div>
     </div>
-    <div class="index-right"></div>
+    <div class="index-right">
+      <div class="index-boardlist-block">
+        <div
+          class="boardlist-item"
+          v-for="(item,index) in boardList"
+          :key="index"
+          :class="{'line-last':index%2!==0}"
+        >
+          <div class="boardlist-item-innner" :class="'broadlist-item-'+item.id">
+            <h2>{{item.title}}</h2>
+            <p>xxx</p>
+            <div class="index-board-button">
+              <a :herf="www" class="button">立即购买</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -31,7 +48,6 @@ export default {
   name: "ExhibitionList",
   data() {
     return {
-      // product: "",
       productList: {
         pc: {
           title: "PC产品",
@@ -95,6 +111,32 @@ export default {
           title: "广告发行",
           url: "www.gg.com"
         }
+      ],
+      boardList: [
+        {
+          title: "开放产品",
+          description: "开放产品实现优化产品的作用",
+          id: "gun",
+          saleout: false
+        },
+        {
+          title: "品牌营销",
+          description: "品牌营销实现优化产品的作用",
+          id: "folk",
+          saleout: false
+        },
+        {
+          title: "使命必达",
+          description: "使命必达实现优化产品的作用",
+          id: "triangle",
+          saleout: false
+        },
+        {
+          title: "勇攀高峰",
+          description: "勇攀高峰实现优化产品的作用",
+          id: "pen",
+          saleout: false
+        }
       ]
     };
   }
@@ -122,7 +164,7 @@ a {
   margin-bottom: 10px;
   background: #fff;
 }
-.index-left-block-last{
+.index-left-block-last {
   padding-bottom: 10px;
 }
 .index-left-block h2 {
@@ -147,6 +189,51 @@ a {
 .newList {
   padding-top: 20px;
   padding-bottom: 15px;
+}
+.index-boardlist-block {
+  overflow: hidden;
+}
+.boardlist-item {
+  float: left;
+  width: 370px;
+  padding: 10px;
+  background: #fff;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.boardlist-item h2,
+.boardlist-item p,
+.index-board-button{
+  margin-bottom: 8px;
+  margin-left: 100px;
+}
+
+.button {
+  display: inline-block;
+  padding: 5px 5px;
+  background: #73c15b;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.line-last {
+  margin-right: 0;
+}
+
+.broadlist-item-gun{
+  background: url(../assets/0.jpg) no-repeat;
+  background-size: 70px;
+}
+.broadlist-item-folk{
+  background: url(../assets/1.jpg) no-repeat;
+  background-size: 70px;
+}
+.broadlist-item-triangle{
+  background: url(../assets/2.jpg) no-repeat;
+  background-size: 70px;
+}
+.broadlist-item-pen{
+  background: url(../assets/3.jpg) no-repeat;
+  background-size: 70px;
 }
 </style>
 
