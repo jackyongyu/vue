@@ -14,7 +14,11 @@
         </div>
       </div>
     </div>
-    <div class="app-content">content</div>
+    <div class="app-content">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
     <div class="app-foot">
       <p>©2019 yy code</p>
     </div>
@@ -43,8 +47,8 @@ th, td {
   margin: 0;
   padding: 0;
 }
-body{
-    margin:0!important;
+body {
+  margin: 0 !important;
 }
 /* 设置默认字体 */
 body,
@@ -86,7 +90,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
 /* 编辑导航和footer的属性 */
 body {
   font-size: 14px;
@@ -106,7 +109,7 @@ body {
 }
 .app-head-innner img {
   width: 70px;
-  height:70px;
+  height: 70px;
   margin-top: 10px;
 }
 .head-nav {
@@ -116,19 +119,19 @@ body {
 .nav-list {
   display: flex;
 }
-.nav-list li{
-    margin-right:10px;
-    cursor: pointer;
+.nav-list li {
+  margin-right: 10px;
+  cursor: pointer;
 }
-.app-foot{
-    text-align:center;
-    height:80px;
-    line-height: 80px;
-    background:#e3e4e8;
+.app-foot {
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+  background: #e3e4e8;
 }
-.app-content{
-    margin: 0 auto;
-    width:1200px;
+.app-content {
+  margin: 0 auto;
+  width: 1200px;
 }
 </style>
 

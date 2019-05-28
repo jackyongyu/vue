@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Layout from './components/Layout'
+import ExhibitionList from './pages/index'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
@@ -10,6 +11,10 @@ let router=new VueRouter({
        path:"/",
        redirect:"/PageIndex"
      },
+     {
+       path:'/exhibitionList',
+       component:ExhibitionList
+     }
     
     ]
 })
@@ -21,4 +26,3 @@ new Vue({
   components:{Layout}
 })
 
-// router.push({path:'/apple'})
