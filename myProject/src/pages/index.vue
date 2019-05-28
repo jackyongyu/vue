@@ -6,7 +6,10 @@
         <div v-for="(product,index) in productList" :key="index">
           <h3>{{product.title}}</h3>
           <ul class="productList">
-            <li v-for="(item,index) in product.list" :key="index"><a :link="">{{item.name}}</a></li>
+            <li v-for="(item,index) in product.list" :key="index">
+              <a :herf="item.url">{{item.name}}</a>
+              <span v-if="item.hot" class="hot">HOT</span>
+            </li>
           </ul>
           <div/>
         </div>
@@ -34,15 +37,16 @@ export default {
             },
             {
               name: "速度统计",
-              url: "www.liuliang.com"
+              url: "www.sd.com"
             },
             {
               name: "广告统计",
-              url: "www.liuliang.com"
+              url: "www.gg.com",
+              hot: true
             },
             {
               name: "销量统计",
-              url: "www.liuliang.com"
+              url: "www.xl.com"
             }
           ]
         },
@@ -51,19 +55,19 @@ export default {
           list: [
             {
               name: "产品助手",
-              url: "www.liuliang.com"
+              url: "www.cp.com"
             },
             {
               name: "91的手",
-              url: "www.liuliang.com"
+              url: "www.91.com"
             },
             {
               name: "插队",
-              url: "www.liuliang.com"
+              url: "www.cd.com"
             },
             {
               name: "电影",
-              url: "www.liuliang.com"
+              url: "www.dy.com"
             }
           ]
         }
@@ -74,6 +78,9 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
 .index-wrap {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -97,6 +104,14 @@ export default {
 }
 .productList li {
   padding: 5px 25px;
+    cursor: pointer;
+}
+.hot {
+  background: red;
+  font-size:10px;
+  padding:2px 5px ;
+  border-radius:2px;
+  color:#fff;
 }
 </style>
 
