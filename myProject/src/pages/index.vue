@@ -6,7 +6,7 @@
         <div v-for="(product,index) in productList" :key="index">
           <h3>{{product.title}}</h3>
           <ul class="productList">
-            <li v-for="(item,index) in product.list" :key="index">{{item.name}}</li>
+            <li v-for="(item,index) in product.list" :key="index"><a :link="">{{item.name}}</a></li>
           </ul>
           <div/>
         </div>
@@ -93,10 +93,10 @@ export default {
   padding: 10px 15px;
 }
 .index-left-block h3 {
-  padding:15px;
+  padding: 15px;
 }
-.productList li{
-    padding:5px 25px;
+.productList li {
+  padding: 5px 25px;
 }
 </style>
 
