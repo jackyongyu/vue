@@ -45,6 +45,16 @@
 </template>
 <script>
 export default {
+  created: function() {
+    this.$http.post("getList").then(
+      function(res) {
+        console.log(res);
+      },
+      function(error) {
+        console.log(error);
+      }
+    );
+  },
   name: "ExhibitionList",
   data() {
     return {
@@ -204,7 +214,7 @@ a {
 }
 .boardlist-item h2,
 .boardlist-item p,
-.index-board-button{
+.index-board-button {
   margin-bottom: 8px;
   margin-left: 100px;
 }
@@ -214,25 +224,26 @@ a {
   padding: 5px 5px;
   background: #73c15b;
   border-radius: 2px;
-  cursor: pointer;    color: #fff;
+  cursor: pointer;
+  color: #fff;
 }
 .line-last {
   margin-right: 0;
 }
 
-.broadlist-item-gun{
+.broadlist-item-gun {
   background: url(../assets/0.jpg) no-repeat;
   background-size: 70px;
 }
-.broadlist-item-folk{
+.broadlist-item-folk {
   background: url(../assets/1.jpg) no-repeat;
   background-size: 70px;
 }
-.broadlist-item-triangle{
+.broadlist-item-triangle {
   background: url(../assets/2.jpg) no-repeat;
   background-size: 70px;
 }
-.broadlist-item-pen{
+.broadlist-item-pen {
   background: url(../assets/3.jpg) no-repeat;
   background-size: 70px;
 }
