@@ -33,7 +33,7 @@
         >
           <div class="boardlist-item-innner" :class="'broadlist-item-'+item.id">
             <h2>{{item.title}}</h2>
-            <p>xxx</p>
+            <p>{{item.description}}</p>
             <div class="index-board-button">
               <a :herf="www" class="button">立即购买</a>
             </div>
@@ -80,15 +80,16 @@ export default {
               url: "www.cp.com"
             },
             {
-              name: "91的手",
-              url: "www.91.com"
+              name: "91的手游",
+              url: "www.91.com",
+              hot: true
             },
             {
               name: "插队",
               url: "www.cd.com"
             },
             {
-              name: "电影",
+              name: "电影公众",
               url: "www.dy.com"
             }
           ]
@@ -195,10 +196,10 @@ a {
 }
 .boardlist-item {
   float: left;
-  width: 370px;
+  width: 375px;
   padding: 10px;
   background: #fff;
-  margin-right: 20px;
+  margin-right: 5px;
   margin-bottom: 20px;
 }
 .boardlist-item h2,
@@ -213,7 +214,7 @@ a {
   padding: 5px 5px;
   background: #73c15b;
   border-radius: 2px;
-  cursor: pointer;
+  cursor: pointer;    color: #fff;
 }
 .line-last {
   margin-right: 0;

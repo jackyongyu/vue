@@ -130,7 +130,7 @@ body {
   background: #e3e4e8;
 }
 .app-content {
-  background: #fbfbfb;
+  background:#f4f2f2;
   padding-top:10px;
   padding-bottom:10px;
 
