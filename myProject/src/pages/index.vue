@@ -14,8 +14,13 @@
           <div/>
         </div>
       </div>
-      <div class="index-left-block">
+      <div class="index-left-block index-left-block-last">
         <h2>最新消息</h2>
+        <ul class="productList newList">
+          <li v-for="(item,index) in newList" :key="index">
+            <a :herf="item.url">{{item.title}}</a>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="index-right"></div>
@@ -26,7 +31,7 @@ export default {
   name: "ExhibitionList",
   data() {
     return {
-      product: "",
+      // product: "",
       productList: {
         pc: {
           title: "PC产品",
@@ -37,7 +42,8 @@ export default {
             },
             {
               name: "速度统计",
-              url: "www.sd.com"
+              url: "www.sd.com",
+              hot: false
             },
             {
               name: "广告统计",
@@ -71,7 +77,25 @@ export default {
             }
           ]
         }
-      }
+      },
+      newList: [
+        {
+          title: "数量统计",
+          url: "www.st.com"
+        },
+        {
+          title: "数量发行",
+          url: "www.sf.com"
+        },
+        {
+          title: "流量统计",
+          url: "www.ll.com"
+        },
+        {
+          title: "广告发行",
+          url: "www.gg.com"
+        }
+      ]
     };
   }
 };
@@ -82,8 +106,8 @@ a {
   text-decoration: none;
 }
 .index-wrap {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 1200px;
+  margin: 0 auto;
   overflow: hidden;
 }
 .index-left {
@@ -93,6 +117,13 @@ a {
 .index-right {
   float: right;
   width: 800px;
+}
+.index-left-block {
+  margin-bottom: 10px;
+  background: #fff;
+}
+.index-left-block-last{
+  padding-bottom: 10px;
 }
 .index-left-block h2 {
   background-color: #73c15b;
@@ -104,14 +135,18 @@ a {
 }
 .productList li {
   padding: 5px 25px;
-    cursor: pointer;
+  cursor: pointer;
 }
 .hot {
   background: red;
-  font-size:10px;
-  padding:2px 5px ;
-  border-radius:2px;
-  color:#fff;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 2px;
+  color: #fff;
+}
+.newList {
+  padding-top: 20px;
+  padding-bottom: 15px;
 }
 </style>
 

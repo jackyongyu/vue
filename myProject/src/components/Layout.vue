@@ -130,8 +130,10 @@ body {
   background: #e3e4e8;
 }
 .app-content {
-  margin: 0 auto;
-  width: 1200px;
+  background: #fbfbfb;
+  padding-top:10px;
+  padding-bottom:10px;
+
 }
 </style>
 
