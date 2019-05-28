@@ -1,35 +1,35 @@
 <template>
-   <div>
-     <div class="app-head">
-         <div class="app-head-innner">
-             <img src="../assets/logo.png" alt="">
-             <div class="head-nav">
-                 <ul class="nav-list">
-                     <li>登陆</li>
-                     <li>|</li>
-                     <li>注册</li>
-                     <li>|</li>
-                     <li>关于</li>
-                 </ul>
-             </div>
-         </div>
-     </div>
-     <div>content</div>
-     <div class="app-footer">
-         <p>©2019 yy code </p>
-     </div>
-   </div>
+  <div>
+    <div class="app-head">
+      <div class="app-head-innner">
+        <img src="../assets/logo.png" alt>
+        <div class="head-nav">
+          <ul class="nav-list">
+            <li>登陆</li>
+            <li>|</li>
+            <li>注册</li>
+            <li>|</li>
+            <li>关于</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="app-content">content</div>
+    <div class="app-foot">
+      <p>©2019 yy code</p>
+    </div>
+  </div>
 </template>
 
 <script>
- export default {
-     name:'Layout',
-     data (){
-         return {
-             msg:"this is layout"
-         }
-     }
- }
+export default {
+  name: "Layout",
+  data() {
+    return {
+      msg: "this is layout"
+    };
+  }
+};
 </script>
 
 <style>
@@ -38,70 +38,98 @@ body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构�
 dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
 pre, /* text formatting elements 文本格式元素 */
 fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
-th, td { /* table elements 表格元素 */
-margin: 0;
-padding: 0;
+th, td {
+  /* table elements 表格元素 */
+  margin: 0;
+  padding: 0;
 }
-
+body{
+    margin:0!important;
+}
 /* 设置默认字体 */
 body,
-button, input, select, textarea { /* for ie */
-/*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
-font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+button,
+input,
+select,
+textarea {
+  /* for ie */
+  /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+  font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
 }
 
-h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
-h2 { font-size: 16px; }
-h3 { font-size: 14px; }
-h4, h5, h6 { font-size: 100%; }
-
-address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
-code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
-small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+h1 {
+  font-size: 18px; /* 18px / 12px = 1.5 */
+}
+h2 {
+  font-size: 16px;
+}
+h3 {
+  font-size: 14px;
+}
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
 
 /* 重置列表元素 */
-ul, ol { list-style: none; }
+ul,
+ol {
+  list-style: none;
+}
 
 /* 重置文本格式元素 */
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
-border-bottom: 1px dotted;
-cursor: help;
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 
-q:before, q:after { content: ''; }
-
-/* 重置表单元素 */
-legend { color: #000; } /* for ie6 */
-fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
-/* 注：optgroup 无法扶正 */
-button, input, select, textarea {
-font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
-}
-
-/* 重置表格元素 */
-table {
-border-collapse: collapse;
-border-spacing: 0;
-}
-
-/* 重置 hr */
-hr {
-border: none;
-height: 1px;
-}
 
 /* 编辑导航和footer的属性 */
-.app-head{
-    background:#363636;
-    color: #b2b2b2;;
-    height:90px;
-    line-height:90;
-    width:100%;
+body {
+  font-size: 14px;
 }
-
+.app-head {
+  background: #363636;
+  color: #b2b2b2;
+  height: 90px;
+  line-height: 90;
+  width: 100%;
+}
+.app-head-innner {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.app-head-innner img {
+  width: 70px;
+  height:70px;
+  margin-top: 10px;
+}
+.head-nav {
+  height: 90px;
+  line-height: 90px;
+}
+.nav-list {
+  display: flex;
+}
+.nav-list li{
+    margin-right:10px;
+    cursor: pointer;
+}
+.app-foot{
+    text-align:center;
+    height:80px;
+    line-height: 80px;
+    background:#e3e4e8;
+}
+.app-content{
+    margin: 0 auto;
+    width:1200px;
+}
 </style>
 
 

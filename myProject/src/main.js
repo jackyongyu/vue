@@ -1,35 +1,22 @@
 import Vue from 'vue'
 import Layout from './components/Layout'
+import VueRouter from 'vue-router'
 
+Vue.use(VueRouter)
+let router=new VueRouter({
+   mode:'history',
+   routes:[
+     {
+       path:"/",
+       redirect:"/PageIndex"
+     },
+    
+    ]
+})
 
-// let router=new VRouter({
-//    mode:'history',
-//    routes:[
-//      {
-//        path:"/",
-//        redirect:"/apple"
-//      },
-//      {
-//        path:"/apple",
-//        component:Apple,
-//        children:[
-//          {
-//            path:'red',
-//            component:redApple,
-//          }
-//        ]
-//      },
-//      {
-//       path:"/banana",
-//       component:Banana,
-//     },
-//     ]
-// })
-
-// Vue.use(VRouter)
 new Vue({
   el:"#app",
-  // router,
+  router,
   template:'<Layout/>',
   components:{Layout}
 })
