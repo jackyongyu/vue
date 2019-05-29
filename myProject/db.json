@@ -1,28 +1,20 @@
 {
-    "boardList": [
-        {
-          "title": "开放产品",
-          "description": "开放产品实现优化产品的作用",
-          "id": "gun",
-          "saleout": false
-        },
-        {
-          "title": "品牌营销",
-          "description": "品牌营销实现优化产品的作用",
-          "id": "folk",
-          "saleout": false
-        },
-        {
-          "title": "使命必达",
-          "description": "使命必达实现优化产品的作用",
-          "id": "triangle",
-          "saleout": false
-        },
-        {
-          "title": "勇攀高峰",
-          "description": "勇攀高峰实现优化产品的作用",
-          "id": "pen",
-          "saleout": false
-        }
-      ]
+  "newList": [
+    {
+      "title": "联邦快递(中国)致歉：华为货件被失误转运无外部要求",
+      "url": "www.st.com"
+    },
+    {
+      "title": "世界首富贝佐斯前妻捐出一半财产 约185亿美元",
+      "url": "www.sf.com"
+    },
+    {
+      "title": "苏州楼市调控再憋狠招！此前刚因房价大涨被警告",
+      "url": "www.ll.com"
+    },
+    {
+      "title": "内蒙古西乌旗致22死矿企事故：原副旗长高晓波被逮捕",
+      "url": "www.gg.com"
+    }
+  ]
 }

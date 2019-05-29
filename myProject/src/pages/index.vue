@@ -46,9 +46,9 @@
 <script>
 export default {
   created: function() {
-    this.$http.get("api/boardList").then(
-      function(res) {
-        console.log(res);
+    this.$http.get("apis/newList").then(
+      res => {
+        this.newList = res.data;
       },
       function(error) {
         console.log(error);
@@ -57,6 +57,7 @@ export default {
   },
   data() {
     return {
+      newList: [],
       productList: {
         pc: {
           title: "PC产品",
@@ -104,24 +105,6 @@ export default {
           ]
         }
       },
-      newList: [
-        {
-          title: "数量统计",
-          url: "www.st.com"
-        },
-        {
-          title: "数量发行",
-          url: "www.sf.com"
-        },
-        {
-          title: "流量统计",
-          url: "www.ll.com"
-        },
-        {
-          title: "广告发行",
-          url: "www.gg.com"
-        }
-      ],
       boardList: [
         {
           title: "开放产品",
@@ -199,6 +182,13 @@ a {
 .newList {
   padding-top: 20px;
   padding-bottom: 15px;
+}
+.newList a {
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inherit;
 }
 .index-boardlist-block {
   overflow: hidden;
