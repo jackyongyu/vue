@@ -1,0 +1,28 @@
+{
+    "boardList": [
+        {
+          "title": "开放产品",
+          "description": "开放产品实现优化产品的作用",
+          "id": "gun",
+          "saleout": false
+        },
+        {
+          "title": "品牌营销",
+          "description": "品牌营销实现优化产品的作用",
+          "id": "folk",
+          "saleout": false
+        },
+        {
+          "title": "使命必达",
+          "description": "使命必达实现优化产品的作用",
+          "id": "triangle",
+          "saleout": false
+        },
+        {
+          "title": "勇攀高峰",
+          "description": "勇攀高峰实现优化产品的作用",
+          "id": "pen",
+          "saleout": false
+        }
+      ]
+}

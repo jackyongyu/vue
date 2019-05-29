@@ -35,7 +35,7 @@
             <h2>{{item.title}}</h2>
             <p>{{item.description}}</p>
             <div class="index-board-button">
-              <a :herf="www" class="button">立即购买</a>
+              <a class="button">立即购买</a>
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
 <script>
 export default {
   created: function() {
-    this.$http.post("getList").then(
+    this.$http.get("api/boardList").then(
       function(res) {
         console.log(res);
       },
@@ -55,7 +55,6 @@ export default {
       }
     );
   },
-  name: "ExhibitionList",
   data() {
     return {
       productList: {
