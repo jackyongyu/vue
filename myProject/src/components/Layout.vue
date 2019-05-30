@@ -23,46 +23,52 @@
       <p>©2019 yy code</p>
     </div>
     <myDialog :isShow="isShowLogdiolag" @closetoDialog="closeDialog('isShowLogdiolag')">
-      <p>login</p>
+      <Login></Login>
     </myDialog>
     <myDialog :isShow="isShowResdiolag" @closetoDialog="closeDialog('isShowResdiolag')">
-      <p>register</p>
+      <Register></Register>
     </myDialog>
     <myDialog :isShow="isShowAboutdiolag" @closetoDialog="closeDialog('isShowAboutdiolag')">
-      <p>hello</p>
+      <p>
+        着时代的发展，越来越多的有钱人选择别墅作为家居住宅的首选。
+        别墅因为面积和格局于普通家居不同，在装修设计的方式上也有所区别。
+        那么别墅装修应该怎么做呢?关于别墅装修方法你知道哪些呢才
+      </p>
     </myDialog>
   </div>
 </template>
 
 <script>
 import Dialog from "./dialog";
+import Login from "./login";
+import Register from "./register";
 export default {
   name: "Layout",
   components: {
-    "myDialog": Dialog
+    myDialog: Dialog,
+    Login,
+    Register
   },
   data() {
     return {
-     isShowLogdiolag:false,
-     isShowResdiolag:false,
-     isShowAboutdiolag:false
-    }
+      isShowLogdiolag: false,
+      isShowResdiolag: false,
+      isShowAboutdiolag: false
+    };
   },
-  methods:{
-    onChange(){
-
+  methods: {
+    onChange() {},
+    openLogDialog() {
+      this.isShowLogdiolag = true;
     },
-    openLogDialog(){
-      this.isShowLogdiolag=true;
+    openRegDialog() {
+      this.isShowResdiolag = true;
     },
-    openRegDialog(){
-      this.isShowResdiolag=true;
+    openAboutDialog() {
+      this.isShowAboutdiolag = true;
     },
-    openAboutDialog(){
-      this.isShowAboutdiolag=true;
-    },
-    closeDialog(attr){
-      this[attr]=false;
+    closeDialog(attr) {
+      this[attr] = false;
     }
   }
 };
@@ -162,10 +168,42 @@ body {
   background: #e3e4e8;
 }
 .app-content {
-  background:#f4f2f2;
-  padding-top:10px;
-  padding-bottom:10px;
-
+  background: #f4f2f2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* form表单样式 */
+.g-form-line {
+  padding: 15px 0;
+}
+.g-frm-label {
+  width: 100px;
+  font-size: 16px;
+  display: inline-block;
+}
+.g-form-input {
+  display: inline-block;
+}
+.g-form-input input {
+  height: 30px;
+  width: 200px;
+  line-height: 30px;
+  vertical-align: middle;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+}
+.g-form-button {
+  padding-left: 100px;
+}
+.button {
+  background: #4fc08d;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.button :hover {
+  background: #4fc08d;
 }
 </style>
 
