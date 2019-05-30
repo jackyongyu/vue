@@ -62,7 +62,6 @@ export default {
   },
   methods: {
     dosthWhenslidechange() {
-      console.log("++++");
     }
   },
   data() {

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="diolag-wrap" v-if="isShow.type">
-      <div class="diolag-cover"></div>
+    <div class="diolag-wrap" v-if="isShow">
+      <div class="diolag-cover" @click="closemyDialog"></div>
       <div class="diolag-content">
-        <p class="diolag-close">x</p>
-        this's text of diolag
+        <p class="diolag-close" @click="closemyDialog">x</p>
+        <slot>empty</slot>
       </div>
     </div>
   </div>
@@ -24,6 +24,11 @@ export default {
        
     };
   },
+  methods:{
+     closemyDialog(){
+        this.$emit('closetoDialog')
+     }
+  }
 
 };
 </script>

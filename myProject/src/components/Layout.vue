@@ -5,11 +5,11 @@
         <img src="../assets/logo.png" alt>
         <div class="head-nav">
           <ul class="nav-list">
-            <li>登陆</li>
+            <li @click="openLogDialog">登陆</li>
             <li>|</li>
-            <li>注册</li>
+            <li @click="openRegDialog">注册</li>
             <li>|</li>
-            <li @click="onChange">关于</li>
+            <li @click="openAboutDialog">关于</li>
           </ul>
         </div>
       </div>
@@ -22,7 +22,15 @@
     <div class="app-foot">
       <p>©2019 yy code</p>
     </div>
-    <myDialog :isShow="showStatus"></myDialog>
+    <myDialog :isShow="isShowLogdiolag" @closetoDialog="closeDialog('isShowLogdiolag')">
+      <p>login</p>
+    </myDialog>
+    <myDialog :isShow="isShowResdiolag" @closetoDialog="closeDialog('isShowResdiolag')">
+      <p>register</p>
+    </myDialog>
+    <myDialog :isShow="isShowAboutdiolag" @closetoDialog="closeDialog('isShowAboutdiolag')">
+      <p>hello</p>
+    </myDialog>
   </div>
 </template>
 
@@ -35,12 +43,26 @@ export default {
   },
   data() {
     return {
-     showStatus:true,
+     isShowLogdiolag:false,
+     isShowResdiolag:false,
+     isShowAboutdiolag:false
     }
   },
   methods:{
     onChange(){
 
+    },
+    openLogDialog(){
+      this.isShowLogdiolag=true;
+    },
+    openRegDialog(){
+      this.isShowResdiolag=true;
+    },
+    openAboutDialog(){
+      this.isShowAboutdiolag=true;
+    },
+    closeDialog(attr){
+      this[attr]=false;
     }
   }
 };
