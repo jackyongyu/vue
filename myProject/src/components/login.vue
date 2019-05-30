@@ -20,6 +20,7 @@
           <a href="#" class="button" @click="onsubmit">登录</a>
         </div>
       </div>
+      <div class="error">{{}}</div>
     </div>
   </div>
 </template>
@@ -61,7 +62,11 @@ export default {
   },
   methods: {
     onsubmit() {
+       if(this.passwordError.status||this.passwordError.status){
+            
+       }else{
 
+       }
     }
   }
 };
