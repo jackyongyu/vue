@@ -9,7 +9,7 @@
             <li>|</li>
             <li>注册</li>
             <li>|</li>
-            <li>关于</li>
+            <li @click="onChange">关于</li>
           </ul>
         </div>
       </div>
@@ -22,16 +22,26 @@
     <div class="app-foot">
       <p>©2019 yy code</p>
     </div>
+    <myDialog :isShow="showStatus"></myDialog>
   </div>
 </template>
 
 <script>
+import Dialog from "./dialog";
 export default {
   name: "Layout",
+  components: {
+    "myDialog": Dialog
+  },
   data() {
     return {
-      msg: "this is layout"
-    };
+     showStatus:true,
+    }
+  },
+  methods:{
+    onChange(){
+
+    }
   }
 };
 </script>

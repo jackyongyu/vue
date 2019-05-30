@@ -24,6 +24,7 @@
       </div>
     </div>
     <div class="index-right">
+      <slider-show :slides="imgsrcList" :slidesTime="2000" @onchange="dosthWhenslidechange"></slider-show>
       <div class="index-boardlist-block">
         <div
           class="boardlist-item"
@@ -44,7 +45,11 @@
   </div>
 </template>
 <script>
+import sliderShow from "../components/sliderShow";
 export default {
+  components: {
+    "slider-show": sliderShow
+  },
   created: function() {
     this.$http.get("apis/newList").then(
       res => {
@@ -55,8 +60,35 @@ export default {
       }
     );
   },
+  methods: {
+    dosthWhenslidechange() {
+      console.log("++++");
+    }
+  },
   data() {
     return {
+      imgsrcList: [
+        {
+          title: "smoke",
+          herf: "http://www.smoke.com",
+          src: require("../assets/slider0.jpg")
+        },
+        {
+          title: "photo",
+          herf: "http://www.photo.com",
+          src: require("../assets/slider1.jpg")
+        },
+        {
+          title: "butterfly",
+          herf: "http://www.butterfly.com",
+          src: require("../assets/slider2.jpg")
+        },
+        {
+          title: "snow",
+          herf: "http://www.snow.com",
+          src: require("../assets/slider3.jpg")
+        }
+      ],
       newList: [],
       productList: {
         pc: {
@@ -159,6 +191,7 @@ a {
 }
 .index-left-block-last {
   padding-bottom: 10px;
+  height:300px;
 }
 .index-left-block h2 {
   background-color: #73c15b;
