@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import ExhibitionList from './pages/index'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import Detail from './pages/detail'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -12,7 +13,11 @@ let router=new VueRouter({
      {
        path:"/",
        component:ExhibitionList
-     }
+     },
+     {
+      path:"/detail",
+      component:Detail,
+    }
     ]
 })
 
