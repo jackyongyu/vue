@@ -20,8 +20,9 @@
           <a href="#" class="button" @click="onsubmit">登录</a>
         </div>
       </div>
-      <div class="error">{{}}</div>
+      <div class="error">{{errorText}}</div>
     </div>
+    
   </div>
 </template>
 
@@ -30,13 +31,22 @@ export default {
   name: "Login",
   data() {
     return {
-  // 1.v-model的绑定，使得获取到input值
+      // 1.v-model的绑定，使得获取到input值
       username: "",
-      userpassword: ""
+      userpassword: "",
+      errorText: "",
+      enterTime: false,
+      enterTimes: false
     };
   },
-  //2.input值改变，v-model绑定的username变化，(属性监听)，返回新值
+  //2.input值改变，v-model赋予的username变化，(属性监听)，返回新值
+  //渲染过程，先是model后是view?errorText模拟计算属userErrorText报错
   computed: {
+    //计算属性点击按钮计算一次，?
+    // v-model放在外层if中，才能监听；
+    //上条+正则判断中if条件判断内再判断又有else内容?
+    //？解决:拿出单判断，放置上个判断之下，覆盖上个结果
+    //？范围：适用于修改一次，不然与上个判断相同
     userError() {
       let status, userErrorText;
       if (!/@/g.test(this.username)) {
@@ -45,6 +55,10 @@ export default {
       } else {
         userErrorText = "";
         status = true;
+      }
+      if (!this.enterTime) {
+        userErrorText = "";
+        this.enterTime = true;
       }
       return { userErrorText, status };
     },
@@ -57,16 +71,29 @@ export default {
         passwordErrorText = "";
         status = true;
       }
+      if (!this.enterTimes) {
+        passwordErrorText = "";
+        this.enterTimes = true;
+      }
       return { passwordErrorText, status };
     }
   },
   methods: {
     onsubmit() {
-       if(this.passwordError.status||this.passwordError.status){
-            
-       }else{
-
-       }
+      let errorText;
+      if (this.userError.status && this.passwordError.status) {
+        this.errorText = "";
+        this.$http.get("apis/login").then(
+          res => {
+            this.$emit('has-login',res.data)
+          },
+          err => {
+            console.log(err);
+          }
+        );
+      } else {
+        this.errorText = "验证失败";
+      }
     }
   }
 };

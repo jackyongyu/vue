@@ -5,9 +5,11 @@
         <img src="../assets/logo.png" alt>
         <div class="head-nav">
           <ul class="nav-list">
-            <li @click="openLogDialog">登陆</li>
+            <li v-if="username!==''" >{{username}}</li>
+            <li v-if="username===''" @click="openLogDialog">登陆</li>
             <li>|</li>
-            <li @click="openRegDialog">注册</li>
+            <li v-if="username!==''" @click="Logout">退出</li>
+            <li v-if="username===''" @click="openRegDialog">注册</li>
             <li>|</li>
             <li @click="openAboutDialog">关于</li>
           </ul>
@@ -22,8 +24,8 @@
     <div class="app-foot">
       <p>©2019 yy code</p>
     </div>
-    <myDialog :isShow="isShowLogdiolag" @closetoDialog="closeDialog('isShowLogdiolag')">
-      <Login></Login>
+    <myDialog :isShow="isShowLogdiolag" @closetoDialog="closeDialog('isShowLogdiolag') ">
+      <Login @has-login="hasLogin"></Login>
     </myDialog>
     <myDialog :isShow="isShowResdiolag" @closetoDialog="closeDialog('isShowResdiolag')">
       <Register></Register>
@@ -53,7 +55,8 @@ export default {
     return {
       isShowLogdiolag: false,
       isShowResdiolag: false,
-      isShowAboutdiolag: false
+      isShowAboutdiolag: false,
+      username:'',
     };
   },
   methods: {
@@ -69,6 +72,13 @@ export default {
     },
     closeDialog(attr) {
       this[attr] = false;
+    },
+    hasLogin(res){
+     this.username=res.username
+     this.closeDialog('isShowLogdiolag')
+    },
+    Logout(){
+      this.username=''
     }
   }
 };

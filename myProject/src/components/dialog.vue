@@ -7,6 +7,7 @@
         <slot>empty</slot>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -62,5 +63,18 @@ export default {
    position: absolute;
    top:0;
    right:5px;
+}
+/* 动画 */
+.droop-enter-active{
+transition :all 0.5s ease;
+}
+.droop-leave-active{
+transition :all 0.3s ease;
+}
+.drop-enter{
+  transform:translateY(-500px)
+}
+.drop-leave-active{
+  transform:translateY(-500px)
 }
 </style>
