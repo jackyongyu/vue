@@ -11,8 +11,12 @@
           <div class="sales-board-line-right"></div>
         </div>
         <div class="sales-board-line">
-          <div class="sales-board-line-left">产品类型：</div>
-           <Selection></Selection>
+          <div class="sales-board-line-left">行业：</div>
+          <Selection></Selection>
+        </div>
+        <div class="sales-board-line">
+          <div class="sales-board-line-left">产品版本：</div>
+          <div class="sales-board-line-right"></div>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">有效时间：</div>
@@ -32,36 +36,24 @@
     </div>
 
     <div class="sales-board-des">
-      <h2>产品说明</h2>
-      <p></p>
-      <h3>用户行为指标</h3>
-      <ul>
-        <li>
-          网站流量指标常用来对网站效果进行评价，主要指标包括：独立访问者数量、
-          重复访问者数量、页面浏览数、每个访问者的页面浏览数和某些具体文件或页面的统计指标。
-        </li>
-        <li>网站流量指标常用来对网站效果进行评价。</li>
-        <li>
-          主要指标包括：独立访问者数量、
-          重复访问者数量、页面浏览数、每个访问者的页面浏览数和某些具体文件或页面的统计指标。
-        </li>
-        <li>
-          网站流量指标常用来对网站效果进行评价，主要指标包括：独立访问者数量、
-          重复访问者数量、页面浏览数、每个访问者的页面浏览数和某些具体文件或页面的统计指标。
-        </li>
-      </ul>
+      <h3>产品说明</h3>
+      <p>
+        产品说明书制作，是以文体的方式对某产品进行相对的详细表述，使人认识、了解到某产品。
+        产品说明书制作要实事求是，制作产品说明书时不可为达到某种目的而夸大产品的作用和性能，
+        这是制作产品说明书的职业操守。
+      </p>
     </div>
   </div>
 </template>
 
 <script>
-import Selection from '../../components/selection'
+import Selection from "../../components/selection";
 export default {
   name: "Court",
-  components:{
-    Selection,
-  },
-}
+  components: {
+    Selection
+  }
+};
 </script>
 
 <style>
