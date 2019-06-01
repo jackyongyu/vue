@@ -4,10 +4,10 @@ import ExhibitionList from './pages/index'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Detail from './pages/detail'
-import Analysis from './components/detail/analysis'
-import Court from './components/detail/court'
-import Publish from './components/detail/publish'
-import Forecast from './components/detail/forecast'
+import Analysis from './pages/detail/analysis'
+import Court from './pages/detail/court'
+import Publish from './pages/detail/publish'
+import Forecast from './pages/detail/forecast'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
