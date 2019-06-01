@@ -1,12 +1,12 @@
 <template>
   <div class="selection-component">
-    <div class="selection-show">
+    <div class="selection-show" @click="toggleDrop">
       <span>{{selectionsData[nowIndex].label}}</span>
       <div class="arrow"></div>
     </div>
-    <div class="selection-list">
+    <div v-if="drop" class="selection-list">
       <ul>
-        <li v-for="(item,index) in selectionsData" :key="index">{{selectionsData[index].label}}</li>
+        <li @click="chooseSelectons(index)" v-for="(item,index) in selectionsData" :key="index">{{selectionsData[index].label}}</li>
       </ul>
     </div>
   </div>
@@ -27,8 +27,20 @@ export default {
   data(){
     return{
       nowIndex:0,
+      drop:false,
     }
+  },
+methods:{
+  toggleDrop(){
+    this.drop=!this.drop
+  },
+  chooseSelectons(index){
+    this.drop=!this.drop
+    this.nowIndex=index
+    this.$emit('choose-slectionsOption',index)
   }
+}
+
 };
 </script>
 

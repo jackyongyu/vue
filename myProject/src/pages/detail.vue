@@ -110,6 +110,7 @@ export default {
 .sales-board-intro h2 {
   font-size: 20px;
   padding: 20px;
+  font-weight:550;
 }
 .sales-board-intro p {
   background: #f7fcff;
@@ -141,14 +142,15 @@ export default {
 .sales-board-des h2 {
   font-size: 20px;
   padding-bottom: 15px;
+      font-weight: 550;
 }
 .sales-board-des h3 {
   font-size: 18px;
   font-weight: bold;
   padding: 20px 0 10px 0;
+      font-weight: 500;
 }
 .sales-board-des li {
-  padding: 100%;
   margin-top: 20px;
 }
 .sales-board--table {
