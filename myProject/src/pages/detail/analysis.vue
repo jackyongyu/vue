@@ -13,7 +13,6 @@
         <div class="sales-board-line">
           <div class="sales-board-line-left">产品类型：</div>
           <div class="sales-board-line-right">
-            <Selection></Selection>
           </div>
         </div>
         <div class="sales-board-line">

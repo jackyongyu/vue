@@ -12,7 +12,6 @@
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">硬件：</div>
-          <Selection></Selection>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">有效时间：</div>

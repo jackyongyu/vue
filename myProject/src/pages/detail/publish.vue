@@ -12,7 +12,6 @@
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">行业：</div>
-          <Selection></Selection>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">产品版本：</div>
