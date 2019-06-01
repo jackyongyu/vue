@@ -69,22 +69,22 @@ export default {
       imgsrcList: [
         {
           title: "smoke",
-          herf: "http://www.smoke.com",
+          herf: "/detail/analysis",
           src: require("../assets/slider0.jpg")
         },
         {
           title: "photo",
-          herf: "http://www.photo.com",
+          herf: "/detail/court",
           src: require("../assets/slider1.jpg")
         },
         {
           title: "butterfly",
-          herf: "http://www.butterfly.com",
+          herf: "/detail/forecast",
           src: require("../assets/slider2.jpg")
         },
         {
           title: "snow",
-          herf: "http://www.snow.com",
+          herf: "/detail/publish",
           src: require("../assets/slider3.jpg")
         }
       ],

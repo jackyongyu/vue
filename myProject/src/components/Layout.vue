@@ -2,7 +2,8 @@
   <div>
     <div class="app-head">
       <div class="app-head-innner">
-        <img src="../assets/logo.png" alt>
+        <router-link to="/"><img src="../assets/logo.png" alt></router-link>
+        
         <div class="head-nav">
           <ul class="nav-list">
             <li v-if="username!==''" >{{username}}</li>
@@ -146,7 +147,7 @@ body {
   background: #363636;
   color: #b2b2b2;
   height: 90px;
-  line-height: 90;
+  /* line-height: 90; */
   width: 100%;
 }
 .app-head-innner {
