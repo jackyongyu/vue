@@ -11,12 +11,8 @@
           <div class="sales-board-line-right"></div>
         </div>
         <div class="sales-board-line">
-          <div class="sales-board-line-left">产品类型：</div>
+          <div class="sales-board-line-left">硬件：</div>
           <Selection></Selection>
-        </div>
-        <div class="sales-board-line">
-          <div class="sales-board-line-left">购买数量：</div>
-          <div class="sales-board-line-right"></div>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">有效时间：</div>
