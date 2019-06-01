@@ -253,19 +253,19 @@ a {
 }
 
 .broadlist-item-gun {
-  background: url(../assets/0.jpg) no-repeat;
+  background: url(../assets/board/0.jpg) no-repeat;
   background-size: 70px;
 }
 .broadlist-item-folk {
-  background: url(../assets/1.jpg) no-repeat;
+  background: url(../assets/board/1.jpg) no-repeat;
   background-size: 70px;
 }
 .broadlist-item-triangle {
-  background: url(../assets/2.jpg) no-repeat;
+  background: url(../assets/board/2.jpg) no-repeat;
   background-size: 70px;
 }
 .broadlist-item-pen {
-  background: url(../assets/3.jpg) no-repeat;
+  background: url(../assets/board/3.jpg) no-repeat;
   background-size: 70px;
 }
 </style>

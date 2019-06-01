@@ -2,13 +2,14 @@
   <div class="detail-wrap">
     <div class="detail-left">
       <div class="product-board">
-        <img src alt>
+        <img :src="product" alt>
         <ul>
           <router-link
             v-for="(item,index) in products"
             :key="index"
             tag="li"
             :to="item.path"
+            active-class="active"
           >{{item.name}}</router-link>
         </ul>
       </div>
@@ -47,8 +48,19 @@ export default {
           path: "publish",
           active: "false"
         }
-      ]
+      ],
+      imgMap: {
+        "/detail/publish": require("../assets/board/0.jpg"),
+        "/detail/analysis": require("../assets/board/1.jpg"),
+        "/detail/forecast": require("../assets/board/2.jpg"),
+        "/detail/court": require("../assets/board/3.jpg")
+      }
     };
+  },
+  computed: { 
+    product() {
+      return this.imgMap[this.$route.path]
+    }
   }
 };
 </script>
@@ -71,7 +83,10 @@ export default {
 }
 .product-board {
   background: #fff;
-  padding: 20 0;
+  padding: 20px 0;
+}
+.product-board img {
+  width: 130px;
 }
 .product-board ul {
   margin-top: 20px;
