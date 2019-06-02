@@ -10,10 +10,54 @@
 
 <script>
 export default {
-  name: "Count"
+  props: {
+    max: {
+      type: Number,
+      default: 19
+    },
+    min: {
+      type: Number,
+      default: 1
+    }
+  },
+  data() {
+    return {
+      number: this.min
+    };
+  },
+  watch:{
+      number(){
+        this.$emit('on-change',this.number)
+      }
+
+      
+  },
+  methods: {
+    fixNumber() {
+      if (typeof this.number === "string") {         
+        this.number = Number(this.number.replace(/\D/g, ""));
+      }     
+      if(this.number>this.max||this.number<this.min){
+          this.number=this.min
+      }
+    },
+    minus() {
+      if (this.number <= this.min) {
+        this.number = this.min;
+      } else {
+        this.number -= 1;
+      }
+    },
+    add() {
+      if (this.number < this.max) {
+        this.number += 1;
+      } else {
+        return;
+      }
+    }
+  }
 };
 </script>
-
 <style scoped>
 .counter-component {
   position: relative;

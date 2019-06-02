@@ -12,12 +12,12 @@
         <div class="sales-board-line">
           <div class="sales-board-line-left">产品数量：</div>
           <div class="sales-board-line-right">
-            <Count></Count>
+            <Count :max="20" :min="10" @on-change="courtChange('countNum',$event)"></Count>
           </div>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">选用地区：</div>
-          <Selection :selectionsData="productType" ></Selection>
+          <Selection :selectionsData="productType" @on-change="courtChange('productType',$event)"></Selection>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">有效时间：</div>
@@ -68,21 +68,35 @@ export default {
   },
   data() {
     return {
+      countNum:0,
       productType: [
         {
-          label: "初级",
-          value: 0
+          "label": "初级",
+          "value": 1
         },
         {
-          label: "中级",
-          value: 0
+          "label": "中级",
+          "value": 2
         },
         {
-          label: "高级",
-          value: 0
+          "label": "高级",
+          "value": 3
+
         }
       ]
     };
+  },
+  methods:{
+    courtChange(attr,val){
+        this.attr=val             
+    },
+    getPrice(){
+      let reqPrams = {
+        countNumer:this.countNum,
+        productTyper:this.productType.value
+      }
+    }
+
   }
 };
 </script>

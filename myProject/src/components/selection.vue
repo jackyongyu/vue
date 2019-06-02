@@ -19,8 +19,8 @@ export default {
     selectionsData: {
       type: Array,
       default:[{
-        label:'--选择--', 
-        value:0,
+        "label":'--选择--', 
+        "value":0,
       }]
     }
   },
@@ -37,7 +37,8 @@ methods:{
   chooseSelectons(index){
     this.drop=!this.drop
     this.nowIndex=index
-    this.$emit('choose-slectionsOption',index)
+    // console.log(this.selectionsData[this.nowIndex]);
+    this.$emit('on-change',this.selectionsData[this.nowIndex])
   }
 }
 

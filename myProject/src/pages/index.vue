@@ -71,12 +71,12 @@ export default {
       imgsrcList: [
         {
           title: "smoke",
-          herf: "/detail/analysis",
+          herf: "/detail/court",
           src: require("../assets/slider0.jpg")
         },
         {
           title: "photo",
-          herf: "/detail/court",
+          herf: "/detail/analysis",
           src: require("../assets/slider1.jpg")
         },
         {
