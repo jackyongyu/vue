@@ -15,48 +15,51 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 const port=PORT || config.dev.port
 const proxyTable=config.dev.proxyTable
 
-// const express = require('express');
-// //express 配置server
-// var apiServer = express()
-// var bodyParser = require('body-parser')
-// apiServer.use(bodyParser.urlencoded({ extended: true }))
-// apiServer.use(bodyParser.json())
-// var apiRouter = express.Router()
-// var fs = require('fs')
-// apiRouter.route('/:apiName') //接口路径
-//   .all(function (req, res) {
-//     fs.readFile('./db.json', 'utf8', function (err, data) {  //读取接口文件
-//       if (err) throw err
-//       var data = JSON.parse(data)
-//       if (data[req.params.apiName]) {
-//         res.json(data[req.params.apiName])
-//       }
-//       else {
-//         res.send('no such api name')
-//       }
- 
-//     })
-//   })
- 
- 
-// apiServer.use('/api', apiRouter);
-// apiServer.listen(3000, function (err) {
-//   if (err) {
-//     console.log(err)
-//     return
-//   }
-//   console.log('Listening at http://localhost:' + 3000 + '\n')
-// })
+//express server
+const express = require('express')
 
-const jsonServer = require('json-server')
-const apiServer = jsonServer.create()
-const apiRouter = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
-apiServer.use(middlewares)
-apiServer.use(apiRouter)
-apiServer.listen(port+1, () => {
-  console.log('JSON Server is running')
+var apiServer = express()
+var bodyParser = require('body-parser')
+apiServer.use(bodyParser.urlencoded({ extended: true }))
+apiServer.use(bodyParser.json())
+var apiRouter = express.Router()
+var fs = require('fs')
+apiRouter.route('/:apiName') //接口路径
+  .all(function (req, res) {
+    fs.readFile('./db.json', 'utf8', function (err, data) {  //读取接口文件
+      if (err) throw err
+      var data = JSON.parse(data)
+      if (data[req.params.apiName]) {
+        res.json(data[req.params.apiName])
+      }
+      else {
+        res.send('no such api name')
+      }
+ 
+    })
+  })
+ 
+ 
+apiServer.use(apiRouter);
+apiServer.listen(8081, function (err) {
+  if (err) {
+    console.log(err)
+    return
+  }
+  console.log('Listening at http://localhost:' + 3000 + '\n')
 })
+
+ 
+
+// const jsonServer = require('json-server')
+// const apiServer = jsonServer.create()
+// const apiRouter = jsonServer.router('db.json')
+// const middlewares = jsonServer.defaults()
+// apiServer.use(middlewares)
+// apiServer.use(apiRouter)
+// apiServer.listen(8081, () => {
+//   console.log('JSON Server is running')
+// })
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {

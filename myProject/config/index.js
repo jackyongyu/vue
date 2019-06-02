@@ -3,6 +3,8 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+
+//json-server
 var proxyConfig = require('./proxyConfig')
 
 module.exports = {
