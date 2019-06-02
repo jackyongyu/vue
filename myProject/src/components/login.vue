@@ -83,8 +83,10 @@ export default {
       let errorText;
       if (this.userError.status && this.passwordError.status) {
         this.errorText = "";
-        this.$http.get("apis/login").then(
+        this.$http.get("api/login").then(
           res => {
+            console.log(res.data);
+            
             this.$emit('has-login',res.data)
           },
           err => {

@@ -51,8 +51,10 @@ export default {
     "slider-show": sliderShow
   },
   created: function() {
-    this.$http.get("apis/newList").then(
+    console.log(this.$http);
+    this.$http.get("api/newList").then(
       res => {
+        console.log(res.data.newList);
         this.newList = res.data;
       },
       function(error) {

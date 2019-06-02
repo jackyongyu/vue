@@ -15,15 +15,22 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 const port=PORT || config.dev.port
 const proxyTable=config.dev.proxyTable
 
-const jsonServer = require('json-server')
-const apiServer = jsonServer.create()
-const apiRouter = jsonServer.router('db.json')
-const middlewares = jsonServer.defaults()
-apiServer.use(middlewares)
-apiServer.use(apiRouter)
-apiServer.listen(8081, () => {
-  console.log('JSON Server is running')
-})
+// const jsonServer = require('json-server')
+// const apiServer = jsonServer.create()
+// const apiRouter = jsonServer.router('db.json')
+// const middlewares = jsonServer.defaults()
+// apiServer.use(middlewares)
+// apiServer.use(apiRouter)
+// apiServer.listen(8081, () => {
+//   console.log('JSON Server is running')
+// })
+
+//2.成功express server
+const express = require('express')
+const app = express()
+const router = express.Router()
+const goodListData = require('../db.json')
+app.use('/api', router)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -54,7 +61,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    }
+    },
+    before(app) {
+      app.get('/api/newList', (req, res, next) => {
+        res.json(goodListData.newList)       
+      }),
+      app.get('/api/login', (req, res, next) => {
+        res.json(goodListData.login)       
+      })
+    },
+    
   },
   plugins: [
     new webpack.DefinePlugin({
