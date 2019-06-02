@@ -10,8 +10,10 @@
     <div class="sales-board-form">
       <div class="sales-board-form">
         <div class="sales-board-line">
-          <div class="sales-board-line-left">产品类型：</div>
-          <div class="sales-board-line-right"></div>
+          <div class="sales-board-line-left">产品数量：</div>
+          <div class="sales-board-line-right">
+            <Count></Count>
+          </div>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">选用地区：</div>
@@ -56,11 +58,13 @@
 </template>
 
 <script>
-import Selection from "../../components/selection";
+import Selection from "../../components/selection"
+import Count from '../../components/count'
 export default {
   name: "Court",
   components: {
-    Selection
+    Selection,
+    Count,
   },
   data() {
     return {

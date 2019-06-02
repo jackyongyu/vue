@@ -15,6 +15,7 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 const port=PORT || config.dev.port
 const proxyTable=config.dev.proxyTable
 
+//jsonSever get可以，post写法疑惑
 // const jsonServer = require('json-server')
 // const apiServer = jsonServer.create()
 // const apiRouter = jsonServer.router('db.json')
