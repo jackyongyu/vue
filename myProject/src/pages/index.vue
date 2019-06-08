@@ -5,34 +5,36 @@
         <h2>全部产品</h2>
         <div v-for="(product,index) in productList" :key="index">
           <h3>{{product.title}}</h3>
-          <ul class="productList">
+          <ul>
             <li v-for="(item,index) in product.list" :key="index">
               <a :herf="item.url">{{item.name}}</a>
-              <span v-if="item.hot" class="hot">HOT</span>
+              <!-- <span v-if="item.hot" class="hot">HOT</span> -->
             </li>
           </ul>
+          <div v-if="!product.last" class="hr"></div>
           <div/>
         </div>
       </div>
-      <div class="index-left-block index-left-block-last">
+      <div class="index-left-block lastest-new">
         <h2>最新消息</h2>
-        <ul class="productList newList">
+        <ul>
           <li v-for="(item,index) in newList" :key="index">
             <a :herf="item.url">{{item.title}}</a>
           </li>
         </ul>
       </div>
     </div>
+
     <div class="index-right">
       <slider-show :slides="imgsrcList" :slidesTime="2000" @onchange="dosthWhenslidechange"></slider-show>
-      <div class="index-boardlist-block">
+      <div class="index-board-list">
         <div
-          class="boardlist-item"
+          class="index-board-item"
           v-for="(item,index) in boardList"
           :key="index"
-          :class="{'line-last':index%2!==0}"
+          :class="[{'line-last':index%2!==0}]"
         >
-          <div class="boardlist-item-innner" :class="'broadlist-item-'+item.id">
+          <div class="index-board-item-inner" :class="'index-board-'+item.id">
             <h2>{{item.title}}</h2>
             <p>{{item.description}}</p>
             <div class="index-board-button">
@@ -41,6 +43,7 @@
           </div>
         </div>
       </div>
+      <div class="index-board-another"></div>
     </div>
   </div>
 </template>
@@ -63,8 +66,7 @@ export default {
     );
   },
   methods: {
-    dosthWhenslidechange() {
-    }
+    dosthWhenslidechange() {}
   },
   data() {
     return {
@@ -94,6 +96,7 @@ export default {
       productList: {
         pc: {
           title: "PC产品",
+          last: false,
           list: [
             {
               name: "流量统计",
@@ -117,6 +120,7 @@ export default {
         },
         app: {
           title: "应用产品",
+          last: true,
           list: [
             {
               name: "产品助手",
@@ -180,95 +184,92 @@ a {
 }
 .index-left {
   float: left;
-  width: 370px;
+  width: 300px;
+  text-align: left;
 }
 .index-right {
-  float: right;
-  width: 800px;
+  float: left;
+  width: 900px;
 }
 .index-left-block {
-  margin-bottom: 10px;
+  margin: 15px;
   background: #fff;
+  box-shadow: 0 0 1px #ddd;
 }
-.index-left-block-last {
-  padding-bottom: 10px;
-  height:300px;
-}
-.index-left-block h2 {
-  background-color: #73c15b;
-  color: #fff;
-  padding: 10px 15px;
-}
-.index-left-block h3 {
-  padding: 15px;
-}
-.productList li {
-  padding: 5px 25px;
-  cursor: pointer;
-}
-.hot {
-  background: red;
-  font-size: 10px;
-  padding: 2px 5px;
-  border-radius: 2px;
-  color: #fff;
-}
-.newList {
-  padding-top: 20px;
-  padding-bottom: 15px;
-}
-.newList a {
-  text-decoration: none;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: inherit;
-}
-.index-boardlist-block {
-  overflow: hidden;
-}
-.boardlist-item {
-  float: left;
-  width: 375px;
-  padding: 10px;
-  background: #fff;
-  margin-right: 5px;
+.index-left-block .hr {
   margin-bottom: 20px;
 }
-.boardlist-item h2,
-.boardlist-item p,
-.index-board-button {
-  margin-bottom: 8px;
-  margin-left: 100px;
-}
-
-.button {
-  display: inline-block;
-  padding: 5px 5px;
-  background: #73c15b;
-  border-radius: 2px;
-  cursor: pointer;
+.index-left-block h2 {
+  background-color: #4fc08d;
   color: #fff;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+}
+.index-left-block h3 {
+  padding: 0 15px 5px 15px;
+  font-weight: bold;
+  color: #222;
+}
+.index-left-block ul {
+  padding: 10px 15px;
+}
+.index-left-block li {
+  padding: 5px;
+}
+.index-board-list {
+  overflow: hidden;
+}
+.index-board-item {
+  float: left;
+  width: 400px;
+  background: #fff;
+  box-shadow: 0 0 1px #ddd;
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.index-board-item-inner {
+  min-height: 125px;
+  padding-left: 120px;
+}
+.index-board-gun {
+  background: url(../assets/board/0.jpg) no-repeat;
+  background-size: 110px;
+  background-position-y: 0;
+  background-position-x: 0;
+}
+.index-board-folk {
+  background: url(../assets/board/1.jpg) no-repeat;
+  background-size: 110px;
+  background-position-y: 0;
+  background-position-x: 0;
+}
+.index-board-triangle {
+  background: url(../assets/board/2.jpg) no-repeat;
+  background-size: 110px;
+  background-position-y: 0;
+  background-position-x: 0;
+}
+.index-board-pen {
+  background: url(../assets/board/3.jpg) no-repeat;
+  background-size: 110px;
+  background-position-y: 0;
+  background-position-x: 0;
+}
+.index-board-item h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 15px;
 }
 .line-last {
   margin-right: 0;
 }
-
-.broadlist-item-gun {
-  background: url(../assets/board/0.jpg) no-repeat;
-  background-size: 70px;
+.index-board-button {
+  margin-top: 20px;
 }
-.broadlist-item-folk {
-  background: url(../assets/board/1.jpg) no-repeat;
-  background-size: 70px;
-}
-.broadlist-item-triangle {
-  background: url(../assets/board/2.jpg) no-repeat;
-  background-size: 70px;
-}
-.broadlist-item-pen {
-  background: url(../assets/board/3.jpg) no-repeat;
-  background-size: 70px;
+.lastest-new {
+  min-height: 512px;
 }
 </style>
 
