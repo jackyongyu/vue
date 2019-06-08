@@ -20,6 +20,8 @@
   "login":{
     "username":"yangyi",
     "id":"3344556"
+  },
+  "getPrice":{
+    "amount":"678"
   }
-  
 }

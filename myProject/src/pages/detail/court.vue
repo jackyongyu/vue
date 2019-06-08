@@ -17,7 +17,7 @@
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">选用地区：</div>
-          <Selection :selectionsData="productType" @on-change="courtChange('productType',$event)"></Selection>
+          <Selection :selectionsData="productType" @on-change="courtChange('product',$event)"></Selection>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">有效时间：</div>
@@ -25,7 +25,7 @@
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">总价：</div>
-          <div class="sales-board-line-right">500元</div>
+          <div class="sales-board-line-right">{{price+'元'}}</div>
         </div>
         <div class="sales-board-line">
           <div class="sales-board-line-left">&nbsp;</div>
@@ -60,6 +60,7 @@
 <script>
 import Selection from "../../components/selection"
 import Count from '../../components/count'
+import _ from 'lodash'
 export default {
   name: "Court",
   components: {
@@ -69,34 +70,48 @@ export default {
   data() {
     return {
       countNum:0,
+      product:{},
+      price:0,
       productType: [
         {
           "label": "初级",
-          "value": 1
+          "value": 0
         },
         {
           "label": "中级",
-          "value": 2
+          "value": 1
         },
         {
           "label": "高级",
-          "value": 3
-
+          "value": 2
         }
       ]
     };
   },
   methods:{
     courtChange(attr,val){
-        this.attr=val             
+         this[attr]=val    
+        console.log(this[attr]);             
+        this.getPrice()
     },
     getPrice(){
+        // let productArray=_.map(this.product,(item)=>{
+        //   return item.value
+        // })
       let reqPrams = {
         countNumer:this.countNum,
-        productTyper:this.productType.value
+        productTyper:this.product.value
       }
+      this.$http.post('/api/getPrice',reqPrams).then((res)=>{
+       this.price=res.data.amount
+      })
     }
 
+  },
+  mounted () {
+       this.countNum=0
+       this.product=this.productType[0]
+       this.getPrice()
   }
 };
 </script>

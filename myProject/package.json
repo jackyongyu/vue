@@ -2,7 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "description": "myproject",
-  "author": "yangyi <m17710252505@163.com>",
+  "author": "yangyi <m177****2505@163.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "json-server": "^0.15.0",
+    "lodash": "^4.17.11",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.6"

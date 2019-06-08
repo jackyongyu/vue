@@ -42,7 +42,7 @@ export default {
   //2.input值改变，v-model赋予的username变化，(属性监听)，返回新值
   //渲染过程，先是model后是view?errorText模拟计算属userErrorText报错
   computed: {
-    //计算属性点击按钮计算一次，?
+    //计算属性点击按钮计算一次?
     // v-model放在外层if中，才能监听；
     //上条+正则判断中if条件判断内再判断又有else内容?
     //？解决:拿出单判断，放置上个判断之下，覆盖上个结果
