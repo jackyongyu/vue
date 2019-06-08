@@ -30,7 +30,7 @@ export default {
       products: [
         {
           name: "数据统计",
-          path: "court",
+          path: "count",
           active: "false"
         },
         {
@@ -53,7 +53,7 @@ export default {
         "/detail/publish": require("../assets/board/0.jpg"),
         "/detail/analysis": require("../assets/board/1.jpg"),
         "/detail/forecast": require("../assets/board/2.jpg"),
-        "/detail/court": require("../assets/board/3.jpg")
+        "/detail/count": require("../assets/board/3.jpg")
       }
     };
   },

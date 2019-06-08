@@ -71,7 +71,7 @@ export default {
       imgsrcList: [
         {
           title: "smoke",
-          herf: "/detail/court",
+          herf: "/detail/count",
           src: require("../assets/slider0.jpg")
         },
         {

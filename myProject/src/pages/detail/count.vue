@@ -59,7 +59,7 @@
 
 <script>
 import Selection from "../../components/selection"
-import Count from '../../components/count'
+import Count from '../../components/counter'
 import _ from 'lodash'
 export default {
   name: "Court",

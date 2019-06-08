@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Detail from './pages/detail'
 import Analysis from './pages/detail/analysis'
-import Court from './pages/detail/court'
+import Count from './pages/detail/count'
 import Publish from './pages/detail/publish'
 import Forecast from './pages/detail/forecast'
 
@@ -21,15 +21,15 @@ let router=new VueRouter({
      {
       path:"/detail",
       component:Detail,
-      redirect:"/detail/court",
+      redirect:"/detail/count",
       children:[
         {
           path:'analysis',
           component:Analysis
         },
         {
-          path:'court',
-          component:Court
+          path:'count',
+          component:Count
         },
         {
           path:'publish',
