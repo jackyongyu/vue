@@ -204,7 +204,7 @@ body {
   border: 1px solid #ccc;
 }
 .g-form-button {
-  padding-left: 100px;
+  padding-left: 60px;
 }
 .button {
   background: #4fc08d;

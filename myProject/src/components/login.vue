@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="g-for-line">
-        <div class="g-form-btn">
+        <div class="g-form-button">
           <a href="#" class="button" @click="onsubmit">登录</a>
         </div>
       </div>
@@ -100,6 +100,5 @@ export default {
   }
 };
 </script>
-// 1.双向绑定
 <style>
 </style>
