@@ -63,7 +63,7 @@ export default {
       setTimeout(() => {
         this.isShow = true;
         this.sliderIndex = index;
-      });
+      },1500);
     },
     runInt() {
       this.setInt = setInterval(() => {

@@ -12,7 +12,7 @@
         <div class="sales-board-line">
           <div class="sales-board-line-left">产品数量：</div>
           <div class="sales-board-line-right">
-            <Count :max="20" :min="10" @on-change="courtChange('countNum',$event)"></Count>
+            <Count :max="20" :min="1" @on-change="courtChange('countNum',$event)"></Count>
           </div>
         </div>
         <div class="sales-board-line">
@@ -30,7 +30,7 @@
         <div class="sales-board-line">
           <div class="sales-board-line-left">&nbsp;</div>
           <div class="sales-board-line-right">
-            <div class="button">立即购买</div>
+            <div class="button" @click="gotoShopping">立即购买</div>
           </div>
         </div>
       </div>
@@ -54,67 +54,121 @@
         </li>
       </ul>
     </div>
+    <Dialog :isShow="isShowPayDialog" @closetoDialog="closeDialog">
+      <table class="buy-dialog-table">
+        <tr>
+          <th>购买数量</th>
+          <th>产品类型</th>
+          <th>有效时间</th>
+          <th>总价</th>
+        </tr>
+        <tr>
+          <td>{{countNum}}</td>
+          <td>{{product.label}}</td>
+          <td>一年</td>
+          <td>{{price}}</td>
+        </tr>
+      </table>
+      <h3>请选择银行</h3>
+      <bank-chooser @on-change="onchangBanks"></bank-chooser>
+      <div class="button buy-dialog-btn">确认购买</div>
+    </Dialog>
   </div>
 </template>
 
 <script>
 import Selection from "../../components/selection"
-import Count from '../../components/counter'
-import _ from 'lodash'
+import Count from "../../components/counter"
+import Dialog from "../../components/dialog"
+import bankChooser from "../../components/bankChooser"
+import _ from "lodash";
 export default {
   name: "Court",
   components: {
     Selection,
     Count,
+    Dialog,
+    'bank-chooser':bankChooser,
   },
   data() {
     return {
-      countNum:0,
-      product:{},
-      price:0,
+      isShowPayDialog: false,
+      countNum: 1,
+      product: {},
+      price: 0,
       productType: [
         {
-          "label": "初级",
-          "value": 0
+          label: "初级",
+          value: 0
         },
         {
-          "label": "中级",
-          "value": 1
+          label: "中级",
+          value: 1
         },
         {
-          "label": "高级",
-          "value": 2
+          label: "高级",
+          value: 2
         }
       ]
     };
   },
-  methods:{
-    courtChange(attr,val){
-         this[attr]=val    
-        console.log(this[attr]);             
-        this.getPrice()
+  methods: {
+    onchangBanks(){
+      
     },
-    getPrice(){
-        // let productArray=_.map(this.product,(item)=>{
-        //   return item.value
-        // })
+    gotoShopping() {
+      this.isShowPayDialog = true;
+    },
+    closeDialog() {
+      this.isShowPayDialog = false;
+    },
+    courtChange(attr, val) {
+      this[attr] = val;
+      console.log(this[attr]);
+      this.getPrice();
+    },
+    getPrice() {
+      // let productArray=_.map(this.product,(item)=>{
+      //   return item.value
+      // })
       let reqPrams = {
-        countNumer:this.countNum,
-        productTyper:this.product.value
-      }
-      this.$http.post('/api/getPrice',reqPrams).then((res)=>{
-       this.price=res.data.amount
-      })
+        countNumer: this.countNum,
+        productTyper: this.product.value
+      };
+      this.$http.post("/api/getPrice", reqPrams).then(res => {
+        this.price = res.data.amount;
+      });
     }
-
   },
-  mounted () {
-       this.countNum=0
-       this.product=this.productType[0]
-       this.getPrice()
+  mounted() {
+    this.countNum =1;
+    this.product = this.productType[0];
+    this.getPrice();
   }
 };
 </script>
 
-<style>
+<style scoped>
+.buy-dialog {
+  font-size: 16px;
+  font-weight: bold;
+}
+.buy-dialog-btn {
+  margin-top: 20px;
+}
+.buy-dialog-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.buy-dialog-table td,
+.buy-dialog-table th {
+  border: 1px solid #e3e3e3;
+  text-align: center;
+  padding: 5px 0;
+}
+.buy-dialog-table th {
+  background: #4fc08d;
+  color: #fff;
+  border: 1px solid #4fc08d;
+}
 </style>
