@@ -73,6 +73,11 @@
       <bank-chooser @on-change="onchangBanks"></bank-chooser>
       <div class="button buy-dialog-btn" @click="confirmBuy">确认购买</div>
     </Dialog>
+    <check-order
+      :is-show-check-dialog="isShowCheckDialog"
+      :order-id="orderId"
+      @on-close-check-dialog="hideCheckOrder"
+    ></check-order>
   </div>
 </template>
 
@@ -80,7 +85,8 @@
 import Selection from "../../components/selection";
 import Count from "../../components/counter";
 import Dialog from "../../components/dialog";
-import bankChooser from "../../components/bankChooser";
+import BankChooser from "../../components/bankChooser";
+import CheckOrder from "../../components/checkOrder";
 import _ from "lodash";
 export default {
   name: "Court",
@@ -88,7 +94,8 @@ export default {
     Selection,
     Count,
     Dialog,
-    "bank-chooser": bankChooser
+    BankChooser,
+    CheckOrder
   },
   data() {
     return {
@@ -97,6 +104,8 @@ export default {
       product: {},
       price: 0,
       bankId: "",
+      isShowCheckDialog: false,
+      orderId: null,
       productType: [
         {
           label: "初级",
@@ -123,9 +132,11 @@ export default {
     onchangBanks(bankObj) {
       this.bankId = bankObj;
     },
+    hideCheckOrder(){
+      this.isShowCheckDialog=false
+    },
     courtChange(attr, val) {
       this[attr] = val;
-      console.log(this[attr]);
       this.getPrice();
     },
     getPrice() {
@@ -146,11 +157,16 @@ export default {
         productTyper: this.product.value,
         bankerId: this.bankId
       };
-      this.$http.post("/api/createOrder", reqPrams).then(res => {
-        this.price = res.data.id;
-      },err=>{
+      this.$http.post("/api/createOrder", reqPrams).then(
+        res => {
+          this.orderId = res.data.id;
+          this.isShowCheckDialog = true;
+          this.isShowPayDialog = false;
+        },
+        err => {
 
-      });
+        }
+      );
     }
   },
   mounted() {
