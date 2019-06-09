@@ -71,16 +71,16 @@
       </table>
       <h3>请选择银行</h3>
       <bank-chooser @on-change="onchangBanks"></bank-chooser>
-      <div class="button buy-dialog-btn">确认购买</div>
+      <div class="button buy-dialog-btn" @click="confirmBuy">确认购买</div>
     </Dialog>
   </div>
 </template>
 
 <script>
-import Selection from "../../components/selection"
-import Count from "../../components/counter"
-import Dialog from "../../components/dialog"
-import bankChooser from "../../components/bankChooser"
+import Selection from "../../components/selection";
+import Count from "../../components/counter";
+import Dialog from "../../components/dialog";
+import bankChooser from "../../components/bankChooser";
 import _ from "lodash";
 export default {
   name: "Court",
@@ -88,7 +88,7 @@ export default {
     Selection,
     Count,
     Dialog,
-    'bank-chooser':bankChooser,
+    "bank-chooser": bankChooser
   },
   data() {
     return {
@@ -96,6 +96,7 @@ export default {
       countNum: 1,
       product: {},
       price: 0,
+      bankId: "",
       productType: [
         {
           label: "初级",
@@ -113,14 +114,14 @@ export default {
     };
   },
   methods: {
-    onchangBanks(){
-      
-    },
     gotoShopping() {
       this.isShowPayDialog = true;
     },
     closeDialog() {
       this.isShowPayDialog = false;
+    },
+    onchangBanks(bankObj) {
+      this.bankId = bankObj;
     },
     courtChange(attr, val) {
       this[attr] = val;
@@ -138,10 +139,22 @@ export default {
       this.$http.post("/api/getPrice", reqPrams).then(res => {
         this.price = res.data.amount;
       });
+    },
+    confirmBuy() {
+      let reqPrams = {
+        countNumer: this.countNum,
+        productTyper: this.product.value,
+        bankerId: this.bankId
+      };
+      this.$http.post("/api/createOrder", reqPrams).then(res => {
+        this.price = res.data.id;
+      },err=>{
+
+      });
     }
   },
   mounted() {
-    this.countNum =1;
+    this.countNum = 1;
     this.product = this.productType[0];
     this.getPrice();
   }
