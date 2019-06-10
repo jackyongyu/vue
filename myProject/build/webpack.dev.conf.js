@@ -78,6 +78,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       }),
       app.post('/api/checkOrder', (req, res, next) => {
         res.json(goodListData)       
+      }),
+      app.post('/api/getOrderList', (req, res, next) => {
+        res.json(goodListData.getOrderList)       
       })
     },
     
