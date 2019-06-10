@@ -7,8 +7,10 @@
           <h3>{{product.title}}</h3>
           <ul>
             <li v-for="(item,index) in product.list" :key="index">
-              <a :herf="item.url">{{item.name}}</a>
-              <!-- <span v-if="item.hot" class="hot">HOT</span> -->
+              <a :herf="item.url">
+                {{item.name}}
+                <span v-if="item.hot" class="hot">HOT</span>
+              </a>
             </li>
           </ul>
           <div v-if="!product.last" class="hr"></div>
@@ -28,20 +30,22 @@
     <div class="index-right">
       <slider-show :slides="imgsrcList" :slidesTime="2000" @onchange="dosthWhenslidechange"></slider-show>
       <div class="index-board-list">
-        <div
-          class="index-board-item"
-          v-for="(item,index) in boardList"
-          :key="index"
-          :class="[{'line-last':index%2!==0}]"
-        >
-          <div class="index-board-item-inner" :class="'index-board-'+item.id">
-            <h2>{{item.title}}</h2>
-            <p>{{item.description}}</p>
-            <div class="index-board-button">
-              <a class="button">立即购买</a>
+        <router-link :to="'/orderList'">
+          <div
+            class="index-board-item"
+            v-for="(item,index) in boardList"
+            :key="index"
+            :class="[{'line-last':index%2!==0}]"
+          >
+            <div class="index-board-item-inner" :class="'index-board-'+item.id">
+              <h2>{{item.title}}</h2>
+              <p>{{item.description}}</p>
+              <div class="index-board-button">
+                <a class="button">立即购买</a>
+              </div>
             </div>
           </div>
-        </div>
+        </router-link>
       </div>
       <div class="index-board-another"></div>
     </div>
@@ -216,12 +220,13 @@ a {
 .index-left-block li {
   padding: 5px;
 }
-.index-left-block li a{
+.index-left-block li a {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+    vertical-align: middle
 }
 .index-board-list {
   overflow: hidden;
@@ -277,6 +282,15 @@ a {
 }
 .lastest-new {
   min-height: 512px;
+}
+.hot {
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 2px;
+  padding: 0 4px;
+  line-height: 1.2;
+  display: inline-block;
 }
 </style>
 
