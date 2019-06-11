@@ -92,9 +92,14 @@ export default {
           label: "总价",
           key: "amount"
         }
-      ],
-      tableDate: []
+      ]
+      // tableDate: []
     };
+  },
+  computed: {
+    tableDate() {
+      return this.$store.getters.getOrderList;
+    }
   },
   watch: {
     query() {
@@ -103,38 +108,42 @@ export default {
   },
   methods: {
     onChangeProduct(obj) {
-      this.productId = obj.value;
-      this.getTableDate();
+      this.$store.commit("updateParames", {
+        key: this.productId,
+        val: obj.value
+      });
+      this.$store.dispatch("fetchOrderList");
     },
     changeDateStart(val) {
-      this.startDate = val;
-      this.getTableDate();
+      this.$store.commit("updateParames", {
+        key: this.startDate,
+        val: val
+      });
+      this.$store.dispatch("fetchOrderList");
     },
     changeDateEnd(val) {
-      this.endDate = val;
-      this.getTableDate();
+      this.$store.commit("updateParames", {
+        key: this.endDate,
+        val: val
+      });
+      this.$store.dispatch("fetchOrderList");
     },
-    getTableDate() {
+    getTableDate() {//err
       let reqPrams = {
         query: this.query,
         productId: this.productId,
         startDate: this.startDate,
         endDate: this.endDate
       };
-      console.log(reqPrams);
-
-      this.$http.post("/api/getOrderList", reqPrams).then(
-        res => {
-           this.tableDate=res.data.list;
-           console.log(this.tableDate);
-           
-        },
-        err => {}
-      );
+      this.$store.commit("updateParames", {
+        key: this.reqPrams,
+      });
+      this.$store.dispatch("fetchOrderList");
     }
   },
   mounted() {
-    this.getTableDate();
+    console.log(this.$store);
+    this.$store.dispatch("fetchOrderList");
   }
 };
 </script>
