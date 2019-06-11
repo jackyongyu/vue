@@ -211,9 +211,9 @@ export default {
   data() {
     return {
       show: false,
-      days: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+      days: ["七", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
       months: [
-        "Jan",
+        "一月",
         "Feb",
         "Mar",
         "Apr",

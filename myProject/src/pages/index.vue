@@ -30,22 +30,22 @@
     <div class="index-right">
       <slider-show :slides="imgsrcList" :slidesTime="2000" @onchange="dosthWhenslidechange"></slider-show>
       <div class="index-board-list">
-        <router-link :to="'/orderList'">
-          <div
-            class="index-board-item"
-            v-for="(item,index) in boardList"
-            :key="index"
-            :class="[{'line-last':index%2!==0}]"
-          >
-            <div class="index-board-item-inner" :class="'index-board-'+item.id">
-              <h2>{{item.title}}</h2>
-              <p>{{item.description}}</p>
-              <div class="index-board-button">
+        <div
+          class="index-board-item"
+          v-for="(item,index) in boardList"
+          :key="index"
+          :class="[{'line-last':index%2!==0}]"
+        >
+          <div class="index-board-item-inner" :class="'index-board-'+item.id">
+            <h2>{{item.title}}</h2>
+            <p>{{item.description}}</p>
+            <div class="index-board-button">
+              <router-link :to="'/orderList'">
                 <a class="button">立即购买</a>
-              </div>
+              </router-link>
             </div>
           </div>
-        </router-link>
+        </div>
       </div>
       <div class="index-board-another"></div>
     </div>
@@ -226,7 +226,7 @@ a {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-    vertical-align: middle
+  vertical-align: middle;
 }
 .index-board-list {
   overflow: hidden;

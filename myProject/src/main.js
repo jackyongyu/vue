@@ -9,6 +9,7 @@ import Count from './pages/detail/count'
 import Publish from './pages/detail/publish'
 import Forecast from './pages/detail/forecast'
 import OrderList from './pages/orderList'
+import store from './store'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -52,6 +53,7 @@ let router=new VueRouter({
 new Vue({
   el:"#app",
   router,
+  store,
   template:'<Layout/>',
   components:{Layout}
 })
